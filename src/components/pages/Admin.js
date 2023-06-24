@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
-import { ethers } from 'ethers';
-import "./Admin.css"
+import React, { useState } from "react";
+import { ethers } from "ethers";
+import "./Admin.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-
 
 // Import your smart contract ABI here
 import contractABI from "../../abi.json";
 
-const contractAddress = '0x8E6f73126d81e00c377524F735751aD4D8693408'; // Replace with your actual contract address
+const contractAddress = "0x8E6f73126d81e00c377524F735751aD4D8693408"; // Replace with your actual contract address
+
+// ATK Token address : 0x1D282d15B3C66aAF0c1b06F3b3a2e2b15d7c49D3
 
 const Admin = () => {
-  const [atkTotalSupply, setAtkTotalSupply] = useState('');
-  const [adminAtkBalance, setAdminAtkBalance] = useState('');
-  const [mintUserAddress, setMintUserAddress] = useState('');
-  const [employeeAddress, setEmployeeAddress] = useState('');
-  const [employeeNftBalance, setEmployeeNftBalance] = useState('');
-  const [mintResult, setMintResult] = useState('');
+  const [atkTotalSupply, setAtkTotalSupply] = useState("");
+  const [adminAtkBalance, setAdminAtkBalance] = useState("");
+  const [mintUserAddress, setMintUserAddress] = useState("");
+  const [employeeAddress, setEmployeeAddress] = useState("");
+  const [employeeNftBalance, setEmployeeNftBalance] = useState("");
+  const [mintResult, setMintResult] = useState("");
 
   // Initialize ethers.js provider and signer
   const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -30,7 +31,7 @@ const Admin = () => {
       const totalSupply = await contract.getATKTotalSupply();
       setAtkTotalSupply(totalSupply.toString());
     } catch (error) {
-      console.error('Error getting ATK Total Supply:', error);
+      console.error("Error getting ATK Total Supply:", error);
     }
   };
 
@@ -40,7 +41,7 @@ const Admin = () => {
       const balance = await contract.getBalanceOfATK();
       setAdminAtkBalance(balance.toString());
     } catch (error) {
-      console.error('Error getting Admin ATK Balance:', error);
+      console.error("Error getting Admin ATK Balance:", error);
     }
   };
 
@@ -49,10 +50,10 @@ const Admin = () => {
     try {
       const transaction = await contract.safeMint(to);
       await transaction.wait(); // Wait for the transaction to be mined
-      setMintResult('NFT minted successfully');
+      setMintResult("NFT minted successfully");
     } catch (error) {
-      console.error('Error minting NFT:', error);
-      setMintResult('Error minting NFT');
+      console.error("Error minting NFT:", error);
+      setMintResult("Error minting NFT");
     }
   };
 
@@ -62,7 +63,7 @@ const Admin = () => {
       const balance = await contract.balanceOf(address);
       setEmployeeNftBalance(balance.toString());
     } catch (error) {
-      console.error('Error getting Employee NFT Balance:', error);
+      console.error("Error getting Employee NFT Balance:", error);
     }
   };
 
@@ -80,8 +81,10 @@ const Admin = () => {
 
   return (
     <div>
-      <h1 className='admin-container'>Admin Panel</h1>
-      <div className='element'><ConnectButton  /></div>
+      <h1 className="admin-container">Admin Panel</h1>
+      <div className="element">
+        <ConnectButton />
+      </div>
       <button onClick={getATKTotalSupply}>Get ATK Total Supply</button>
       <p>ATK Total Supply: {atkTotalSupply}</p>
 
