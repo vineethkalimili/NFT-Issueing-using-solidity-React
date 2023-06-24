@@ -5,23 +5,41 @@ This is a smart contract written in Solidity for managing employee rewards using
 
 In the project directory, you can run:
 
-### `git clone <project-url>`
+```
+git clone <project-url>
+```
 
-### `cd NFT-Issueing-using-solidity-React`
+ ```
+ cd NFT-Issueing-using-solidity-React
+ ```
 
-### `npm install`
+ ```
+ npm install
+ ```
 
-### `npm start`
+ ```
+ npm start
+ ```
 
 ## Tools and Technologies Used 
 
-### `Polygon Mumbai Testnet`
+ ```
+ Polygon Mumbai Testnet
+ ```
 
-### `Solidity`
+ ```
+ Solidity
+ ```
 
-### `Openzeppelin`
+ ```
+ Openzeppelin
+ ```
 
-### `React JS`
+ ```
+ React JS
+ ```
 
-### `RainbowUiKit`
+ ```
+ RainbowUiKit
+ ```
 
